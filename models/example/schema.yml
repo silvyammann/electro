@@ -75,7 +75,7 @@ models:
 
 sources:
   - name: mysource
-    database: mydb
+    database: electro
     schema: public
     tables:
       - name: _airbyte_raw_ladestellen
