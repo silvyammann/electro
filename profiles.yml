@@ -5,7 +5,7 @@ postgres:
     dev:
       type: postgres
       host: host.docker.internal
-      user: postgres
+      user: airbyte
       password: Matterhorn1. 
       port: 5432
       dbname: mydb
@@ -13,5 +13,19 @@ postgres:
       threads: 1
       keepalives_idle: 0 
       connect_timeout: 10 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
