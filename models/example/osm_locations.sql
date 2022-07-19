@@ -16,3 +16,4 @@ select
   (locations.location_data->'GeoCoordinates'->'Google')::text as coordinates
 from operators
 cross join lateral (select json_array_elements(operators.datarecord::json) as location_data) as locations
+
