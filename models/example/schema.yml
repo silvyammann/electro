@@ -1,21 +1,82 @@
-
 version: 2
 
 models:
-    - name: my_first_dbt_model
-      description: "A starter dbt model"
+    - name: source_table
+      description: "The imported data"
       columns:
-          - name: id
-            description: "The primary key for this table"
-            tests:
-                - unique
-                - not_null
+          - name: _airbyte_ab_id 
+            # character varying NOT NULL,
+          - name: _airbyte_data
+            # jsonb
+          - name: _airbyte_emitted_at
 
-    - name: my_second_dbt_model
-      description: "A starter dbt model"
+    - name: operators
+      description: "Operator Level Data"
       columns:
           - name: id
             description: "The primary key for this table"
+            type: varchar
             tests:
                 - unique
                 - not_null
+          - name: name
+            type: varchar
+            description: "name of the operator"
+          - name: evse_data
+            description: "JSON data for the operator"
+            type: json
+
+    - name: locations
+      description: "locations"
+      columns:
+          - name: id
+            description: "The primary key for this table"
+            type: varchar
+            tests:
+                - unique
+                - not_null
+          - name: operator_id
+            description: "foreign key to operator"
+            type: varchar
+          - name: location_data
+            description: "JSON data for the operator"
+            type: json
+
+    - name: osm_locations
+      description: "osm locations"
+      columns:
+          - name: id
+            description: "The primary key for this table"
+            type: varchar
+            tests:
+                - unique
+                - not_null
+          - name: operator_id
+            description: "foreign key to operator"
+            type: varchar
+          - name: amenity
+            description: "charging_station"
+          - name: operator
+            description: "EVSEData.OperatorName"
+          - name: reference
+            description: "EVSEData.EVSEDataRecord.ChargingStationId"
+          - name: socket
+            description: "EVSEData.EVSEDataRecord.Plugs"
+          - name: fee
+            description: "EVSEData.EVSEDataRecord.Accessibility"
+          - name: opening_hours
+            description: "EVSEData.EVSEDataRecord.OpeningTimes"
+          - name: payment
+            description: "EVSEData.EVSEDataRecord.PaymentOptions"
+          - name: authentication
+            description: "EVSEData.EVSEDataRecord.AuthenticationModes"
+          - name: coordinates
+            description: "EVSEData.EVSEDataRecord.GeoCoordinates.Google"
+
+sources:
+  - name: mysource
+    database: mydb
+    schema: public
+    tables:
+      - name: _airbyte_raw_ladestellen
+
