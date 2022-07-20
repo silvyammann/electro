@@ -1,7 +1,8 @@
+
 version: 2
 
 models:
-    - name: source_table
+    - name: mysource
       description: "The imported data"
       columns:
           - name: _airbyte_ab_id 
@@ -79,3 +80,4 @@ sources:
     schema: public
     tables:
       - name: _airbyte_raw_ladestellen
+
