@@ -4,8 +4,8 @@ postgres:
   outputs:
     dev:
       type: postgres
-      host: localhost
-      user: airbyte
+      host: host.docker.internal
+      user: postgres
       password: Matterhorn1. 
       port: 5432
       dbname: mydb
