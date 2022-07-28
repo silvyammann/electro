@@ -8,7 +8,7 @@ postgres:
       user: postgres
       password: Matterhorn1. 
       port: 5432
-      dbname: mydb
+      dbname: electro
       schema: public
       threads: 1
       keepalives_idle: 0 

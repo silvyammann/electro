@@ -2,7 +2,7 @@
 version: 2
 
 models:
-    - name: mysource
+    - name: source_table
       description: "The imported data"
       columns:
           - name: _airbyte_ab_id 
@@ -76,7 +76,7 @@ models:
 
 sources:
   - name: mysource
-    database: mydb
+    database: electro
     schema: public
     tables:
       - name: _airbyte_raw_ladestellen
