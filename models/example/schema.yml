@@ -2,7 +2,7 @@
 version: 2
 
 models:
-    - name: mysource
+    - name: source_table
       description: "The imported data"
       columns:
           - name: _airbyte_ab_id 
@@ -72,8 +72,7 @@ models:
           - name: authentication
             description: "EVSEData.EVSEDataRecord.AuthenticationModes"
           - name: coordinates
-            description: "EVSEData.EVSEDataRecord.GeoCoordinates.Google"
-
+            description: "EVSEData.EVSEDataRecord.GeoCoordinates.Google"   
 sources:
   - name: mysource
     database: electro
